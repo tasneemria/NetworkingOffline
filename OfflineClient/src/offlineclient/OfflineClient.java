@@ -55,11 +55,21 @@ public class OfflineClient {
         OutputStream out = clientSocket.getOutputStream();
         System.out.println("length of the file "+length);
         
-        
         int count;
+        String WithoutBitStuffing = "";
         while ((count = in.read(bytes)) > 0) {
+            int i=0;
+            System.out.println("working here...");
             out.write(bytes, 0, count);
-            
+            while(i<(int)length)
+            {
+                byte b1 = (byte)bytes[i];
+                String s1 = String.format("%s", Integer.toBinaryString(b1 & 0xFF)).replace(' ', '0');
+                WithoutBitStuffing+=s1;
+                //System.out.println("i = "+i+" "+s1);
+                i++;
+            }
+            System.out.println(WithoutBitStuffing);
         }
 
         //out.close();

@@ -105,7 +105,7 @@ class WorkerThread implements Runnable {
                         //sendFile(clientArr[clientFound],"another.txt");
                         InputStream in = connectionSocket.getInputStream();
                         //OutputStream out = connectionSocket.getOutputStream();
-                        OutputStream out = new FileOutputStream("new.pdf");
+                        OutputStream out = new FileOutputStream("new.txt");
                         byte[] bytes = new byte[16*1024];
 
                         int count;
@@ -115,7 +115,7 @@ class WorkerThread implements Runnable {
 
                     //out.close();
                     //in.close();
-                    File file = new File("new.pdf");
+                    File file = new File("new.txt");
                     clientFoundSec = Integer.parseInt(writeFromServer2);
                     //long length = file.length();
                     byte[] bytes2 = new byte[16 * 1024];
